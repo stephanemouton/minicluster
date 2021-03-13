@@ -3,7 +3,7 @@
 Documentation of a mini bare-metal cluster intended for Kubernetes experiments. It consists in 6 nodes (X86_64 architecture) managed by a server node providing global services (DNS, etc.). The whole cluster fits in a case and is therefore portable.
 ![Cluster V1](./images/clusterv1.resized.jpg "Cluster V1")
 
-Day-to-day information on the cluster is available on my blog.
+Day-to-day information on the cluster [is available on my blog](https://www.mouton.in/categories/minicluster/).
 
 ## Building
 
