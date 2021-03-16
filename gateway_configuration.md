@@ -1,9 +1,14 @@
 # Gateway and global network configuration
 
+## Network and gatewy overview
+
+![Network map](./images/minicluster.png "Network map")
+
 ## Gateway configuration
 
 Configuration of `/etc/` directory is managed with `etckeeper` command and stored in a remote git repository on gitlab according to procedure described in: https://coderwall.com/p/v1agsg/installing-etckeeper-to-store-config-with-autopush-to-git-in-ubuntu-14-04-lts
 
+### Manual configuration
 In order to perform the first basic configuration tasks, a parallel shell is installed. The chosen tool is [pdsh](https://github.com/chaos/pdsh), also available as distribution package. Example of basic use: 
 
     pdsh -w ssh:user@nodename[1-XX] "uname -nrpo"
@@ -20,7 +25,13 @@ The gateway acts as an autonomous time server, to be able to work offline. There
 The command below sets time *immediately* on nodes `cargo1` to `cargo6`:
     pdsh -w ssh:root@cargo[1-6] "chronyc -a burst 4/4" |sort
 
-## Global Network configuration
+Other manual setups:
+* deactivate SELINUX
+* create user `capitaine` with sudo capability
+* Create keys for root and capitaine and deploy public keys on nodes
+* Install Ansible
+
+## Network configuration
 
 Installation of `bind-utils` package is recommended for network troubleshooting
 The server is set as gateway. It means that the gateway must forward traffic by NAT using the following commands:
@@ -42,6 +53,5 @@ Tools used are:
     * A specific list of upstream DNS servers is defined in a file different from `resolv.conf`, using `resolv-file` parameter. 
 
 Default route is set on the ethernet device connected *outside* of the cluster. 
-
 
 * How to configure a CentOS 8 cluster: https://jjasghar.github.io/blog/2020/02/14/centos-8-as-my-new-router/

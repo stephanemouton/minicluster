@@ -1,0 +1,12 @@
+# Chrony setup on CentOS
+- name: Install Chrony
+  dnf: name=chrony state=latest
+
+- name: Start Chrony client
+  systemd:
+    name: chronyd
+    state: started
+    enabled: yes
+
+- name: Force time synchronization
+  command: chronyc -a burst 4/4

@@ -16,7 +16,7 @@ Initial plan was to deploy CentOS 8 stream using
 * Underlying configuration ([TFTP](https://docs.centos.org/en-US/8-docs/advanced-install/assembly_preparing-for-a-network-install/#configuring-a-tftp-server-for-bios-based-clients_preparing-for-a-network-install), etc.) to enable The Foreman to deploy OS by [kickstart](https://docs.centos.org/en-US/8-docs/advanced-install/assembly_creating-installation-sources-for-kickstart-installations/
 ) files through PXE boot.
 
-As I discovered that [cluster nodes](./hardware/README.md) couldn't boot with PXE, deployment is not automated for now. Stay tuned on the blog for more information.
+As I discovered that [cluster nodes](./hardware/README.md) couldn't boot with PXE, The Foreman can be removed and deployment is not automated for now. Stay tuned.
 
 ## Gateway configuration and global network services
 

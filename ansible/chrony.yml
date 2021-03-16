@@ -1,0 +1,7 @@
+- name: Setup NTP client on all nodes
+  hosts: nodes
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - chrony

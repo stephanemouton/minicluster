@@ -2,7 +2,7 @@
 
 ## Global configuration
 
-*TODO*
+* chrony.yml: NTP client on all nodes
 
 ## Kubernetes deployment
 

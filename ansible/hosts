@@ -1,0 +1,10 @@
+[server]
+rotterdam
+
+[nodes]
+cargo1
+cargo2
+cargo3
+cargo4
+cargo5
+cargo6
