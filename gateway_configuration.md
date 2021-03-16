@@ -29,7 +29,7 @@ Other manual setups:
 * deactivate SELINUX
 * create user `capitaine` with sudo capability
 * Create keys for root and capitaine and deploy public keys on nodes
-* Install Ansible
+* Install Ansible on server and python3 on nodes
 
 ## Network configuration
 
