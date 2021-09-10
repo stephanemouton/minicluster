@@ -28,5 +28,8 @@ As much as possible, and once public keys of management accounts have been deplo
 
 ## Kubernetes deployment
 
-To be continued ...
+### Container deployment
+
+The selected container technology is [CRI-O](https://cri-o.io/) to avoid turmoils around Docker. Details are gathered in a [dedicated page](./container.MD).
+
 
