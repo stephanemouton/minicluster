@@ -1,12 +1,19 @@
 # Gateway and global network configuration
 
-## Network and gatewy overview
+## Network and gateway overview
+
+The gateway is named after Bagghar, imaginary port in Tintin adventures' "Coke en Stock"
+Nodes are named cargos because they are supposed to handle containers.
 
 ![Network map](./images/minicluster.png "Network map")
 
 ## Gateway configuration
 
 Configuration of `/etc/` directory is managed with `etckeeper` command and stored in a remote git repository on gitlab according to procedure described in: https://coderwall.com/p/v1agsg/installing-etckeeper-to-store-config-with-autopush-to-git-in-ubuntu-14-04-lts
+
+Chosen Linux version is Rocky Linux 9
+* https://docs.rockylinux.org/guides/installation/
+* https://ciq.co/blog/top-10-things-to-do-after-rocky-linux-9-install/
 
 ### Manual configuration
 In order to perform the first basic configuration tasks, a parallel shell is installed. The chosen tool is [pdsh](https://github.com/chaos/pdsh), also available as distribution package. Example of basic use: 
@@ -47,11 +54,16 @@ Tools used are:
 * For DHCP, classic dhcpd server, configured according to:
     * https://kifarunix.com/install-and-setup-dhcp-server-on-centos-8/
     * https://vitux.com/how-to-install-and-configure-dhcp-server-on-centos/
+    * See [dhcpd.conf](../configs/dhcpd.conf) for details.
 * For DNS, DNSmasq as cache of DNS server and to add local names
     * DNSmasq is configured to deliver only DNS, using `no-dhcp-interface` parameter
     * DNS service is only available on the ethernet device connected with cluster nodes 
     * A specific list of upstream DNS servers is defined in a file different from `resolv.conf`, using `resolv-file` parameter. 
+    * See [dnsmasq.conf](../configs/dnsmasq.conf) for details.
 
 Default route is set on the ethernet device connected *outside* of the cluster. 
 
-* How to configure a CentOS 8 cluster: https://jjasghar.github.io/blog/2020/02/14/centos-8-as-my-new-router/
+References and articles used to perform network configuration
+
+* [How to configure a CentOS 8 cluster](https://jjasghar.github.io/blog/2020/02/14/centos-8-as-my-new-router/)
+* [DNSMasq configuration](https://superuser.com/questions/835189/using-dnsmasq-to-address-machines-by-name-and-resolve-external-hostnames)

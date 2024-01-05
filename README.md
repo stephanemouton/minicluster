@@ -9,27 +9,33 @@ Day-to-day information on the cluster [is available on my blog](https://www.mout
 
 All information related to hardware is gathered in a [dedicated page](./hardware/README.md).
 
-## OS deployment configuration
-
-Initial plan was to deploy CentOS 8 stream using
-* [The Foreman](https://theforeman.org) provisioning tool for nodes life cycle management
-* Underlying configuration ([TFTP](https://docs.centos.org/en-US/8-docs/advanced-install/assembly_preparing-for-a-network-install/#configuring-a-tftp-server-for-bios-based-clients_preparing-for-a-network-install), etc.) to enable The Foreman to deploy OS by [kickstart](https://docs.centos.org/en-US/8-docs/advanced-install/assembly_creating-installation-sources-for-kickstart-installations/
-) files through PXE boot.
-
-As I discovered that [cluster nodes](./hardware/README.md) couldn't boot with PXE, The Foreman can be removed and deployment is not automated for now. Stay tuned.
-
 ## Gateway configuration and global network services
 
+In addition to providing access to the minicluster, the gateway also hosts global services and network configuration for cluster nodes.
 A dedicated page [gathers information](./gateway_configuration.md) on gateway configuration.
 
 ## Global cluster configuration
 
 As much as possible, and once public keys of management accounts have been deployed on nodes, global configuration is done using [Ansible scripts](./ansible/README.md)
 
+### OS deployment configuration
+
+Initial plan was to deploy CentOS stream using provisioning tools like [The Foreman](https://theforeman.org) for nodes life cycle management. As I discovered that [cluster nodes](./hardware/README.md) couldn't boot with PXE, a more traditional and low level approach had to be used.
+
+Furthermore, due to change in CentOS project management, I switched to Rocky Linux alternative.
+
+Automated deployment of Operating System on cluster nodes [is documented on a dedicated page](./documentation/os_automated_deployment.md).
+
 ## Kubernetes deployment
 
 ### Container deployment
 
-The selected container technology is [CRI-O](https://cri-o.io/) to avoid turmoils around Docker. Details are gathered in a [dedicated page](./container.MD).
+_Documentation available soon: stay tuned._
 
+### Kubernetes setup
+
+_Documentation available soon: stay tuned._
+
+* Single cluster
+* Two clusters in separate VLANs
 

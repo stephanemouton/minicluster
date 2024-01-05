@@ -1,0 +1,15 @@
+#!ipxe
+
+set repo-url 192.168.1.1:8000
+#set base ftp://192.168.1.1/pub/BaseOS/x86_64/os
+
+echo "            ------------------------ Rocky Linux 9 -------------------------------"
+kernel http://${repo-url}/images/pxeboot/vmlinuz inst.repo=http://${repo-url} inst.text inst.ks=http://${repo-url}/kickstart.ks
+initrd http://${repo-url}/images/pxeboot/initrd.img
+echo "            ------------------------- end Config.  -------------------------------"
+echo     Starting boot in 10 seconds
+sleep 10
+#prompt Press any key to continue
+boot || imgfree
+# Fallback
+shell
